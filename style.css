@@ -1,0 +1,177 @@
+:root {
+    --bg: rgb(243, 246, 228);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: var(--bg);
+    color: rgb(0, 0, 0);
+}
+
+.accordion-tab {
+    width: min(85vw, 600px);
+
+    &:nth-of-type(1) h2 {
+        background-image: linear-gradient(90deg,
+                #f9a0d4 20%
+                /* 1*12.5% */
+                ,
+                #ffe193 20%, #ffe193 40%
+                /* 2*12.5% */
+                ,
+                #83dcdb 0, #83dcdb 60%
+                /* 3*12.5% */
+                ,
+                #6ae0fe 0, #6ae0fe 80%
+                /* 4*12.5% */
+                ,
+                #bcbef1 0);
+    }
+
+    &:nth-of-type(2) h2 {
+        background-image: linear-gradient(90deg,
+                #fec4df 20%
+                /* 1*12.5% */
+                ,
+                #ff8abd 20%, #ff8abd 40%
+                /* 2*12.5% */
+                ,
+                #ff6cb8 40%, #ff6cb8 60%
+                /* 3*12.5% */
+                ,
+                #87d9d6 60%, #87d9d6 80%
+                /* 4*12.5% */
+                ,
+                #0190ad 0);
+    }
+
+    &:nth-of-type(3) h2 {
+        background-image: linear-gradient(90deg,
+                #00ad9b 20%
+                /* 1*12.5% */
+                ,
+                #9fe6be 0, #9fe6be 40%
+                /* 2*12.5% */
+                ,
+                #fef5cc 0, #fef5cc 60%
+                /* 3*12.5% */
+                ,
+                #ffe095 0, #ffe095 80%
+                /* 4*12.5% */
+                ,
+                #c34a8f 0);
+    }
+
+    &:nth-of-type(4) h2 {
+        background-image: linear-gradient(90deg,
+                #e9311a 20%
+                /* 1*12.5% */
+                ,
+                #ed6335 0, #ed6335 40%
+                /* 2*12.5% */
+                ,
+                #ecae7d 0, #ecae7d 60%
+                /* 3*12.5% */
+                ,
+                #8db4ad 0, #8db4ad 80%
+                /* 4*12.5% */
+                ,
+                #026c80 0);
+    }
+
+    &:nth-of-type(5) h2 {
+        background-image: linear-gradient(90deg,
+                #f19960 20%
+                /* 1*12.5% */
+                ,
+                #eeae94 0, #eeae94 40%
+                /* 2*12.5% */
+                ,
+                #e9bc6d 0, #e9bc6d 60%
+                /* 3*12.5% */
+                ,
+                #ca5a4b 0, #ca5a4b 80%
+                /* 4*12.5% */
+                ,
+                #64262e 0);
+    }
+
+    &:nth-of-type(6) h2 {
+        background-image: linear-gradient(90deg,
+                #c66a00 20%
+                /* 1*12.5% */
+                ,
+                #988b7b 0, #988b7b 40%
+                /* 2*12.5% */
+                ,
+                #bba84f 0, #bba84f 60%
+                /* 3*12.5% */
+                ,
+                #781500 0, #781500 80%
+                /* 4*12.5% */
+                ,
+                #a77d4d 0);
+    }
+
+    &:nth-of-type(7) h2 {
+        background-image: linear-gradient(90deg,
+                #29353c 20%
+                /* 1*12.5% */
+                ,
+                #44576d 0, #44576d 40%
+                /* 2*12.5% */
+                ,
+                #768a96 0, #768a96 60%
+                /* 3*12.5% */
+                ,
+                #aac7d8 0, #aac7d8 80%
+                /* 4*12.5% */
+                ,
+                #dfebf6 0);
+    }
+
+    & h2 {
+        position: relative;
+        font: 900 0.7rem 'arial-black', sans-serif;
+        text-transform: uppercase;
+        padding: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &::after {
+            content: '+';
+            position: absolute;
+            right: 1rem;
+            font-size: 1rem;
+            transition: transform 0.5s;
+        }
+    }
+}
+
+.accordion-content {
+    width: calc(min(85vw, 600px) - 1rem);
+    margin: 0.2rem auto;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-out;
+
+    & p {
+        font: 0.75rem/1.8 helvetica, sans-serif;
+        text-align: justify;
+        overflow: hidden;
+    }
+}
+
+.expand .accordion-content {
+    grid-template-rows: 1fr;
+    padding: 0.5rem 0;
+}
